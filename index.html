@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tu Nombre — Desarrollador Full Stack Junior</title>
+  <meta name="description" content="Portfolio de Tu Nombre, desarrollador full stack junior. Java, .NET, Angular y más." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- NAV -->
+  <header class="nav">
+    <a href="#" class="nav__logo">&lt;tu_nombre /&gt;</a>
+    <nav class="nav__links">
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#skills">Skills</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero__eyebrow">Hola, soy</p>
+    <h1 class="hero__title">Tu Nombre y Apellido</h1>
+    <h2 class="hero__subtitle">Desarrollador <span>Full Stack</span> Junior</h2>
+    <p class="hero__desc">
+      Estudiante de Ingeniería en Sistemas (UTN-FRC). Construyo aplicaciones web con
+      <strong>Java + Spring Boot</strong>, <strong>C#/.NET</strong> y <strong>Angular</strong>.
+      Apasionado por el código limpio, la POO y los patrones de diseño.
+    </p>
+    <div class="hero__cta">
+      <a class="btn btn--primary" href="#proyectos">Ver proyectos</a>
+      <a class="btn btn--ghost" href="CV_Programador.docx" download>Descargar CV</a>
+    </div>
+    <div class="hero__social">
+      <a href="https://github.com/tu-usuario" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/tu-usuario" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:tucorreo@gmail.com">Email</a>
+    </div>
+  </section>
+
+  <!-- SOBRE MÍ -->
+  <section id="sobre-mi" class="section">
+    <h2 class="section__title"><span>01.</span> Sobre mí</h2>
+    <div class="about">
+      <p>
+        Soy un desarrollador full stack junior en formación, cursando Ingeniería en Sistemas
+        de Información en la UTN-FRC. Me gusta entender cómo funcionan las cosas por dentro:
+        desde el modelado del dominio con programación orientada a objetos hasta la experiencia
+        final del usuario en pantalla.
+      </p>
+      <p>
+        Trabajo cómodo en ambos lados del stack — APIs REST y lógica de negocio en el backend,
+        interfaces reactivas en el frontend — y disfruto especialmente de aplicar
+        <strong>patrones de diseño</strong> y principios <strong>SOLID</strong> para escribir
+        código que otros puedan leer y mantener. Busco mi primera experiencia profesional para
+        seguir creciendo dentro de un equipo.
+      </p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section">
+    <h2 class="section__title"><span>02.</span> Tecnologías</h2>
+    <div class="skills">
+      <div class="skill-card">
+        <h3>Backend</h3>
+        <ul>
+          <li>Java 21 / Spring Boot</li>
+          <li>C# / .NET / ASP.NET Core</li>
+          <li>API REST · WebSockets</li>
+          <li>JPA/Hibernate · Entity Framework</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>Frontend</h3>
+        <ul>
+          <li>Angular</li>
+          <li>TypeScript / JavaScript</li>
+          <li>HTML5 · CSS3</li>
+          <li>RxJS · Signals</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>Datos</h3>
+        <ul>
+          <li>SQL Server</li>
+          <li>MongoDB</li>
+          <li>Modelado relacional</li>
+          <li>Nociones NoSQL (Redis)</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>Fundamentos &amp; Tools</h3>
+        <ul>
+          <li>POO · Patrones de diseño</li>
+          <li>SOLID · Clean Code</li>
+          <li>Git / GitHub · Maven · npm</li>
+          <li>JUnit · Mockito · Scrum</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section id="proyectos" class="section">
+    <h2 class="section__title"><span>03.</span> Proyectos</h2>
+
+    <!-- Proyecto destacado -->
+    <article class="project project--featured">
+      <div class="project__body">
+        <p class="project__tag">Proyecto destacado</p>
+        <h3 class="project__title">Pokémon TCG Online</h3>
+        <p class="project__desc">
+          Versión web multijugador del Pokémon Trading Card Game. Implementé el motor de reglas
+          del juego (Game Engine) según el reglamento oficial, con partidas en tiempo real vía
+          WebSockets, tablero interactivo con drag &amp; drop y un deck builder.
+        </p>
+        <ul class="project__stack">
+          <li>Java 21</li><li>Spring Boot</li><li>Angular</li><li>WebSockets</li><li>JUnit</li>
+        </ul>
+        <div class="project__links">
+          <a href="https://github.com/tu-usuario/pokemon-tcg" target="_blank" rel="noopener">Código</a>
+          <a href="#" target="_blank" rel="noopener">Demo</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Grilla de proyectos -->
+    <div class="project-grid">
+      <article class="card">
+        <h3 class="card__title">Sistema de Gestión</h3>
+        <p class="card__desc">
+          Aplicación de gestión (inventario / turnos) con arquitectura en capas, CRUD completo
+          y reportes. Acceso a datos sobre SQL Server con Entity Framework.
+        </p>
+        <ul class="card__stack"><li>C#</li><li>.NET</li><li>SQL Server</li></ul>
+        <div class="card__links">
+          <a href="https://github.com/tu-usuario/proyecto-2" target="_blank" rel="noopener">Código →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3 class="card__title">[ Tu próximo proyecto ]</h3>
+        <p class="card__desc">
+          Reemplazá esta tarjeta con otro proyecto: una API REST, una SPA en Angular,
+          un trabajo práctico que te haya gustado, etc.
+        </p>
+        <ul class="card__stack"><li>Stack</li><li>aquí</li></ul>
+        <div class="card__links">
+          <a href="#" target="_blank" rel="noopener">Código →</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="section section--contact">
+    <h2 class="section__title section__title--center"><span>04.</span> Contacto</h2>
+    <p class="contact__text">
+      ¿Buscás un desarrollador junior con ganas de aprender? Estoy abierto a oportunidades.
+      ¡Escribime!
+    </p>
+    <a class="btn btn--primary btn--lg" href="mailto:tucorreo@gmail.com">Enviar un email</a>
+    <div class="hero__social hero__social--center">
+      <a href="https://github.com/tu-usuario" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/tu-usuario" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>Diseñado y construido por Tu Nombre · 2026</p>
+  </footer>
+</body>
+</html>
