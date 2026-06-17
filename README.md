@@ -25,7 +25,7 @@ Estudiante de Ingeniería en Sistemas de Información (UTN-FRC).
 ## 📫 Contacto
 
 - Email: emmanuel.moreno.halberstadt.dev@gmail.com
-- LinkedIn: [linkedin.com/in/Emmanuel-Halberstadt](https://linkedin.com/in/Emmanuel-Halberstadt)
+- LinkedIn: [linkedin.com/in/emmanuel-moreno-halberstadt](https://www.linkedin.com/in/emmanuel-moreno-halberstadt-8605b2193/)
 - GitHub: [github.com/Emmanuel-Halberstadt](https://github.com/Emmanuel-Halberstadt)
 
 ---
