@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -24,7 +25,7 @@
 
   <!-- HERO -->
   <section class="hero">
-    <img class="hero__avatar" src="foto.png" alt="Emmanuel Moreno Halberstadt" onerror="this.style.display='none'" />
+    <img class="hero__avatar" src="foto.png" alt="Emmanuel Moreno Halberstadt" title="Clic para ampliar" onerror="this.style.display='none'" onclick="document.getElementById('lightbox').classList.add('open')" />
     <p class="hero__eyebrow">Hola, soy</p>
     <h1 class="hero__title">Emmanuel Moreno Halberstadt</h1>
     <h2 class="hero__subtitle">Desarrollador <span>Full Stack</span> Junior</h2>
@@ -105,6 +106,43 @@
         </ul>
       </div>
     </div>
+
+    <!-- Carrusel infinito de tecnologías -->
+    <div class="marquee" aria-label="Tecnologías que conozco">
+      <div class="marquee__track">
+        <span class="tech"><i class="devicon-java-plain colored"></i>Java</span>
+        <span class="tech"><i class="devicon-spring-plain colored"></i>Spring</span>
+        <span class="tech"><i class="devicon-csharp-plain colored"></i>C#</span>
+        <span class="tech"><i class="devicon-dotnetcore-plain colored"></i>.NET</span>
+        <span class="tech"><i class="devicon-typescript-plain colored"></i>TypeScript</span>
+        <span class="tech"><i class="devicon-javascript-plain colored"></i>JavaScript</span>
+        <span class="tech"><i class="devicon-angularjs-plain colored"></i>Angular</span>
+        <span class="tech"><i class="devicon-html5-plain colored"></i>HTML5</span>
+        <span class="tech"><i class="devicon-css3-plain colored"></i>CSS3</span>
+        <span class="tech"><i class="devicon-microsoftsqlserver-plain colored"></i>SQL Server</span>
+        <span class="tech"><i class="devicon-mongodb-plain colored"></i>MongoDB</span>
+        <span class="tech"><i class="devicon-redis-plain colored"></i>Redis</span>
+        <span class="tech"><i class="devicon-neo4j-plain colored"></i>Neo4j</span>
+        <span class="tech"><i class="devicon-git-plain colored"></i>Git</span>
+        <span class="tech"><i class="devicon-docker-plain colored"></i>Docker</span>
+        <!-- copia para loop continuo -->
+        <span class="tech"><i class="devicon-java-plain colored"></i>Java</span>
+        <span class="tech"><i class="devicon-spring-plain colored"></i>Spring</span>
+        <span class="tech"><i class="devicon-csharp-plain colored"></i>C#</span>
+        <span class="tech"><i class="devicon-dotnetcore-plain colored"></i>.NET</span>
+        <span class="tech"><i class="devicon-typescript-plain colored"></i>TypeScript</span>
+        <span class="tech"><i class="devicon-javascript-plain colored"></i>JavaScript</span>
+        <span class="tech"><i class="devicon-angularjs-plain colored"></i>Angular</span>
+        <span class="tech"><i class="devicon-html5-plain colored"></i>HTML5</span>
+        <span class="tech"><i class="devicon-css3-plain colored"></i>CSS3</span>
+        <span class="tech"><i class="devicon-microsoftsqlserver-plain colored"></i>SQL Server</span>
+        <span class="tech"><i class="devicon-mongodb-plain colored"></i>MongoDB</span>
+        <span class="tech"><i class="devicon-redis-plain colored"></i>Redis</span>
+        <span class="tech"><i class="devicon-neo4j-plain colored"></i>Neo4j</span>
+        <span class="tech"><i class="devicon-git-plain colored"></i>Git</span>
+        <span class="tech"><i class="devicon-docker-plain colored"></i>Docker</span>
+      </div>
+    </div>
   </section>
 
   <!-- PROYECTOS -->
@@ -178,5 +216,11 @@
   <footer class="footer">
     <p>Diseñado y construido por Emmanuel Moreno Halberstadt · 2026</p>
   </footer>
+
+  <!-- Visor ampliado de la foto (clic en cualquier lado para cerrar) -->
+  <div id="lightbox" class="lightbox" onclick="this.classList.remove('open')">
+    <span class="lightbox__close" aria-label="Cerrar">&times;</span>
+    <img src="foto.png" alt="Emmanuel Moreno Halberstadt" />
+  </div>
 </body>
 </html>
