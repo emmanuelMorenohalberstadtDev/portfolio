@@ -3,7 +3,7 @@
 Desarrollador **Full Stack Junior** · Java · .NET · Angular
 Estudiante de Ingeniería en Sistemas de Información (UTN-FRC).
 
-🔗 **Sitio en vivo:** https://emmanuel-morenoh.github.io/portfolio/
+🔗 **Sitio en vivo:** https://emmanuel-halberstadt.github.io/portfolio/
 
 ---
 
@@ -25,8 +25,8 @@ Estudiante de Ingeniería en Sistemas de Información (UTN-FRC).
 ## 📫 Contacto
 
 - Email: emmanuel.moreno.halberstadt.dev@gmail.com
-- LinkedIn: [linkedin.com/in/emmanuel-morenoh](https://linkedin.com/in/emmanuel-morenoh)
-- GitHub: [github.com/emmanuel-morenoh](https://github.com/emmanuel-morenoh)
+- LinkedIn: [linkedin.com/in/Emmanuel-Halberstadt](https://linkedin.com/in/Emmanuel-Halberstadt)
+- GitHub: [github.com/Emmanuel-Halberstadt](https://github.com/Emmanuel-Halberstadt)
 
 ---
 
