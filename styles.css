@@ -240,3 +240,30 @@ a { color: inherit; text-decoration: none; }
   .hero::before, .hero::after,
   .section::before, .section::after { animation: none; }
 }
+
+/* ====================================================== */
+/* SECCIÓN DESARROLLO CON IA                              */
+/* ====================================================== */
+.ia-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.2rem; margin-top: 1.8rem;
+}
+.ia-card {
+  background: linear-gradient(160deg, var(--bg-card), var(--bg-soft));
+  border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 1.5rem; transition: transform 0.2s, border-color 0.2s;
+}
+.ia-card:hover { transform: translateY(-5px); border-color: var(--accent-2); }
+.ia-card__icon { font-size: 1.9rem; display: block; margin-bottom: 0.6rem; }
+.ia-card h3 { color: var(--accent-2); font-size: 1.05rem; margin-bottom: 0.5rem; }
+.ia-card p { color: var(--text-dim); font-size: 0.9rem; }
+.ia-badges {
+  display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1.6rem;
+}
+.ia-badge {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.4rem 0.9rem; border-radius: 999px;
+  font-family: "JetBrains Mono", monospace; font-size: 0.8rem; font-weight: 600;
+  color: var(--accent); background: rgba(88, 166, 255, 0.08);
+  border: 1px solid var(--accent);
+}
