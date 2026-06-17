@@ -1,9 +1,9 @@
-# 👋 Portfolio — Tu Nombre
+# 👋 Portfolio — Emmanuel Moreno Halberstadt
 
 Desarrollador **Full Stack Junior** · Java · .NET · Angular
 Estudiante de Ingeniería en Sistemas de Información (UTN-FRC).
 
-🔗 **Sitio en vivo:** https://tu-usuario.github.io/portfolio/
+🔗 **Sitio en vivo:** https://emmanuel-morenoh.github.io/portfolio/
 
 ---
 
@@ -24,9 +24,9 @@ Estudiante de Ingeniería en Sistemas de Información (UTN-FRC).
 
 ## 📫 Contacto
 
-- Email: tucorreo@gmail.com
-- LinkedIn: [linkedin.com/in/tu-usuario](https://linkedin.com/in/tu-usuario)
-- GitHub: [github.com/tu-usuario](https://github.com/tu-usuario)
+- Email: emmanuel.moreno.halberstadt.dev@gmail.com
+- LinkedIn: [linkedin.com/in/emmanuel-morenoh](https://linkedin.com/in/emmanuel-morenoh)
+- GitHub: [github.com/emmanuel-morenoh](https://github.com/emmanuel-morenoh)
 
 ---
 
