@@ -31,13 +31,12 @@
       el.style.setProperty("--reveal-delay", (i % 8) * 70 + "ms");
     });
 
+    // Se re-anima cada vez que el elemento entra en el viewport:
+    // al salir se resetea para que el efecto se repita al volver.
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            io.unobserve(entry.target);
-          }
+          entry.target.classList.toggle("is-visible", entry.isIntersecting);
         });
       },
       { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
