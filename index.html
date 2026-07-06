@@ -12,6 +12,11 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- Fondo shader WebGL (cambia por sección desde app.js) -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <!-- Barra de progreso de scroll -->
+  <div id="progress" aria-hidden="true"></div>
+
   <!-- NAV -->
   <header class="nav">
     <a href="#" class="nav__logo">&lt;emmanuel /&gt;</a>
@@ -288,5 +293,7 @@
     <span class="lightbox__close" aria-label="Cerrar">&times;</span>
     <img src="foto.png" alt="Emmanuel Moreno Halberstadt" />
   </div>
+
+  <script src="app.js?v=3" defer></script>
 </body>
 </html>
