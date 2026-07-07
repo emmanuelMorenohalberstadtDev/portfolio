@@ -14,6 +14,11 @@
     // Mensaje de bienvenida del asistente:
     GREETING:
       "¡Hola! 👋 Soy el asistente de Emmanuel. Preguntame sobre su stack, experiencia, proyectos o cómo contactarlo.",
+    // --- Límites para cuidar el consumo de créditos ---
+    MAX_MESSAGE_LEN: 500, // máximo de caracteres por mensaje
+    MIN_INTERVAL_MS: 3000, // espera mínima entre mensajes (anti-spam)
+    MAX_MESSAGES: 20, // máximo de mensajes por sesión
+    MAX_HISTORY: 6, // turnos de historial que se envían al modelo
   };
 
   const $ = (sel) => document.querySelector(sel);
@@ -28,6 +33,8 @@
   // Historial de la conversación (formato Claude: role + content).
   const history = [];
   let greeted = false;
+  let lastSentAt = 0; // timestamp del último envío (para el rate-limit)
+  let messageCount = 0; // mensajes enviados en esta sesión
 
   function openPanel() {
     panel.classList.add("open");
@@ -53,10 +60,56 @@
     if (e.key === "Escape" && panel.classList.contains("open")) closePanel();
   });
 
+  // Escapa HTML para evitar inyección antes de renderizar Markdown.
+  function escapeHtml(s) {
+    return s
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+  }
+
+  // Renderiza un subconjunto seguro de Markdown (el modelo suele responder así):
+  // encabezados, negrita, cursiva, código, enlaces, viñetas y saltos de línea.
+  function renderMarkdown(text) {
+    let html = escapeHtml(text.trim());
+    // Enlaces [texto](url) — solo http(s) y mailto.
+    html = html.replace(
+      /\[([^\]]+)\]\((https?:\/\/[^\s)]+|mailto:[^\s)]+)\)/g,
+      '<a href="$2" target="_blank" rel="noopener">$1</a>'
+    );
+    // URLs y emails sueltos → enlaces clicables.
+    html = html.replace(
+      /(^|[\s(])(https?:\/\/[^\s<)]+)/g,
+      '$1<a href="$2" target="_blank" rel="noopener">$2</a>'
+    );
+    html = html.replace(
+      /(^|[\s(])([\w.+-]+@[\w-]+\.[\w.-]+)/g,
+      '$1<a href="mailto:$2">$2</a>'
+    );
+    // Encabezados ##/### → negrita.
+    html = html.replace(/^#{1,6}\s*(.+)$/gm, "<strong>$1</strong>");
+    // Negrita y cursiva.
+    html = html.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+    html = html.replace(/(^|[^*])\*([^*\n]+)\*/g, "$1<em>$2</em>");
+    // Código en línea.
+    html = html.replace(/`([^`]+)`/g, "<code>$1</code>");
+    // Viñetas al inicio de línea.
+    html = html.replace(/^\s*[-*]\s+(.+)$/gm, "• $1");
+    // Separadores horizontales.
+    html = html.replace(/^\s*---+\s*$/gm, "");
+    // Saltos de línea.
+    html = html.replace(/\n/g, "<br>");
+    return html;
+  }
+
   function addBubble(text, who) {
     const el = document.createElement("div");
     el.className = "chat-bubble chat-bubble--" + who;
-    el.textContent = text;
+    if (who === "bot") {
+      el.innerHTML = renderMarkdown(text);
+    } else {
+      el.textContent = text;
+    }
     messages.appendChild(el);
     messages.scrollTop = messages.scrollHeight;
     return el;
@@ -86,7 +139,7 @@
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const text = input.value.trim();
+    let text = input.value.trim();
     if (!text) return;
 
     if (CONFIG.WEBHOOK_URL.includes("TU-INSTANCIA-N8N")) {
@@ -99,6 +152,30 @@
       return;
     }
 
+    // --- Rate-limit del lado del cliente (cuida el gasto de créditos) ---
+    if (messageCount >= CONFIG.MAX_MESSAGES) {
+      addBubble(
+        "Llegaste al límite de mensajes de esta sesión. Para seguir la charla, escribile directamente: emmanuel.moreno.halberstadt.dev@gmail.com 🙌",
+        "bot"
+      );
+      return;
+    }
+    const sinceLast = Date.now() - lastSentAt;
+    if (sinceLast < CONFIG.MIN_INTERVAL_MS) {
+      const wait = Math.ceil((CONFIG.MIN_INTERVAL_MS - sinceLast) / 1000);
+      addBubble(
+        `Esperá ${wait}s antes de enviar otro mensaje, por favor. ⏳`,
+        "bot"
+      );
+      return;
+    }
+    // Recortar mensajes demasiado largos.
+    if (text.length > CONFIG.MAX_MESSAGE_LEN) {
+      text = text.slice(0, CONFIG.MAX_MESSAGE_LEN);
+    }
+
+    lastSentAt = Date.now();
+    messageCount++;
     addBubble(text, "user");
     history.push({ role: "user", content: text });
     input.value = "";
@@ -109,7 +186,11 @@
       const res = await fetch(CONFIG.WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: text, history: history.slice(0, -1) }),
+        body: JSON.stringify({
+          message: text,
+          // Enviamos solo los últimos turnos para acotar tokens/costo.
+          history: history.slice(0, -1).slice(-CONFIG.MAX_HISTORY),
+        }),
       });
       typing.remove();
       if (!res.ok) throw new Error("HTTP " + res.status);
