@@ -1,7 +1,7 @@
 # 👋 Portfolio — Emmanuel Moreno Halberstadt
 
 Desarrollador **Full Stack Junior** · Java · .NET · Angular
-Estudiante de Ingeniería en Sistemas de Información (UTN-FRC).
+Estudiante de la Tecnicatura Universitaria en Programación (UTN-FRC).
 
 🔗 **Sitio en vivo:** https://emmanuelmorenohalberstadtdev.github.io/portfolio/
 
