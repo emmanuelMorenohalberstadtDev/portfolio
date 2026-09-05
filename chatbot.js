@@ -1,16 +1,17 @@
 /* =======================================================================
    chatbot.js — Asistente IA del portfolio
-   Widget de chat que habla con un webhook de n8n (que a su vez llama a
-   Claude). La API key vive en n8n, NUNCA acá.
+   Widget de chat que habla con un Cloudflare Worker (que a su vez llama a
+   la Claude API). La API key vive en el Worker, NUNCA acá.
+   El código del Worker está en worker/src/index.js.
    -----------------------------------------------------------------------
-   CONFIG: pegá abajo la URL del webhook de n8n (Production URL).
+   CONFIG: pegá abajo la URL que devuelve `npx wrangler deploy`.
    ======================================================================= */
 (function () {
   "use strict";
 
   const CONFIG = {
-    // 👉 Reemplazá esto por la "Production URL" de tu Webhook de n8n:
-    WEBHOOK_URL: "https://emmanuelmorenohalberstadt.app.n8n.cloud/webhook/portfolio-chat",
+    // URL del Worker desplegado (código en worker/src/index.js):
+    WEBHOOK_URL: "https://portfolio-chat.emmanuel-mh.workers.dev",
     // Mensaje de bienvenida del asistente:
     GREETING:
       "¡Hola! 👋 Soy el asistente de Emmanuel. Preguntame sobre su stack, experiencia, proyectos o cómo contactarlo.",
@@ -142,10 +143,10 @@
     let text = input.value.trim();
     if (!text) return;
 
-    if (CONFIG.WEBHOOK_URL.includes("TU-INSTANCIA-N8N")) {
+    if (CONFIG.WEBHOOK_URL.includes("TU-SUBDOMINIO")) {
       addBubble(text, "user");
       addBubble(
-        "⚙️ Falta configurar la URL del webhook de n8n en chatbot.js (CONFIG.WEBHOOK_URL).",
+        "⚙️ Falta configurar la URL del Worker en chatbot.js (CONFIG.WEBHOOK_URL).",
         "bot"
       );
       input.value = "";
@@ -201,6 +202,9 @@
       history.push({ role: "assistant", content: reply });
     } catch (err) {
       typing.remove();
+      // Dejamos el error real en consola: sin esto, un 404 del endpoint y un
+      // fallo de CORS se ven idénticos desde el navegador.
+      console.error("[chatbot] Falló la consulta al asistente:", err);
       addBubble(
         "Ups, hubo un problema al conectar con el asistente. Probá de nuevo en un momento.",
         "bot"

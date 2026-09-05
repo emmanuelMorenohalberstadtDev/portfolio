@@ -1,0 +1,14 @@
+name = "portfolio-chat"
+main = "src/index.js"
+compatibility_date = "2026-09-05"
+compatibility_flags = ["nodejs_compat"]
+
+# KV para el rate-limit por IP y el techo diario global.
+# Creá el namespace con:  npx wrangler kv namespace create RATE_LIMIT
+# y pegá abajo el id que te devuelve.
+[[kv_namespaces]]
+binding = "RATE_LIMIT"
+id = "e117f6d72ce3436480b52c99ac0a2cad"
+
+# La API key NO va acá. Se carga como secret cifrado:
+#   npx wrangler secret put ANTHROPIC_API_KEY
