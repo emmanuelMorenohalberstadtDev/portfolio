@@ -203,12 +203,19 @@ export default {
       return json({ reply: limitMessage }, 200, origin);
     }
 
-    if (!env.ANTHROPIC_API_KEY) {
-      console.error("[portfolio-chat] Falta el secret ANTHROPIC_API_KEY.");
+    // Aceptamos los dos nombres: el secret quedó cargado como
+    // ANTHROPIC_API_KEY2 en Cloudflare. Si algún día se unifica en
+    // ANTHROPIC_API_KEY, este fallback se puede borrar.
+    const apiKey = env.ANTHROPIC_API_KEY || env.ANTHROPIC_API_KEY2;
+
+    if (!apiKey) {
+      console.error(
+        "[portfolio-chat] Falta el secret ANTHROPIC_API_KEY (o ANTHROPIC_API_KEY2)."
+      );
       return json({ error: "Asistente sin configurar" }, 500, origin);
     }
 
-    const client = new Anthropic({ apiKey: env.ANTHROPIC_API_KEY });
+    const client = new Anthropic({ apiKey });
 
     try {
       const response = await client.messages.create({
