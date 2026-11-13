@@ -60,6 +60,13 @@
     onScroll();
   })();
 
+  // Cerrar el visor de la foto con Escape.
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape") return;
+    const lb = document.getElementById("lightbox");
+    if (lb) lb.classList.remove("open");
+  });
+
   /* =====================================================================
      3) FONDO: RED DE PARTÍCULAS ANIMADA (canvas 2D) — anima siempre
      ===================================================================== */

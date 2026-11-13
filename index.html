@@ -5,14 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Emmanuel Moreno Halberstadt — Desarrollador Full Stack Junior</title>
   <meta name="description" content="Portfolio de Emmanuel Moreno Halberstadt, desarrollador full stack junior. Java, .NET, Angular y más." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d1117'/%3E%3Ctext x='32' y='43' font-family='monospace' font-size='30' font-weight='700' text-anchor='middle' fill='%2358a6ff'%3EE%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-  <link rel="stylesheet" href="styles.css?v=6" />
+  <link rel="stylesheet" href="styles.css?v=7" />
 </head>
 <body>
-  <!-- Fondo shader WebGL (cambia por sección desde app.js) -->
+  <!-- Fondo animado de partículas (cambia por sección desde app.js) -->
   <canvas id="bg-canvas" aria-hidden="true"></canvas>
   <!-- Barra de progreso de scroll -->
   <div id="progress" aria-hidden="true"></div>
@@ -60,9 +61,8 @@
       <p>
         Soy un desarrollador full stack junior en formación, cursando la Tecnicatura Universitaria
         en Programación en la UTN-FRC (Córdoba), carrera que inicié en 2024. Me gusta entender cómo
-        funcionan las cosas por dentro:
-        desde el modelado del dominio con programación orientada a objetos hasta la experiencia
-        final del usuario en pantalla. 
+        funcionan las cosas por dentro: desde el modelado del dominio con programación orientada a objetos hasta la experiencia
+        final del usuario en pantalla.
       </p>
       <p>
         Trabajo cómodo en ambos lados del stack — APIs REST y lógica de negocio en el backend,
@@ -158,51 +158,43 @@
   <section id="proyectos" class="section">
     <h2 class="section__title"><span>03.</span> Proyectos</h2>
 
-    <!-- Proyecto destacado -->
     <article class="project project--featured">
       <div class="project__body">
         <p class="project__tag">Proyecto destacado</p>
         <h3 class="project__title">Pokémon TCG Online</h3>
         <p class="project__desc">
           Versión web multijugador del Pokémon Trading Card Game. Implementé el motor de reglas
-          del juego (Game Engine) según el reglamento oficial, con partidas en tiempo real vía
-          WebSockets, tablero interactivo con drag &amp; drop y un deck builder.
+          del juego según el reglamento oficial, con partidas en tiempo real vía WebSockets,
+          tablero interactivo con drag &amp; drop y un deck builder.
         </p>
         <ul class="project__stack">
-          <li>Java 21</li><li>Spring Boot</li><li>Angular</li><li>WebSockets</li><li>JUnit</li>
+          <li>Java 21</li><li>Spring Boot</li><li>Angular</li><li>MySQL</li><li>WebSockets</li><li>JUnit</li>
         </ul>
-        <div class="project__links">
-          <!-- Cuando subas el repo, reemplazá el span por:
-               <a href="https://github.com/emmanuelMorenohalberstadtDev/pokemon-tcg" target="_blank" rel="noopener">Código</a> -->
-          <span class="soon">Repo próximamente</span>
-        </div>
       </div>
     </article>
 
-    <!-- Grilla de proyectos -->
-    <!-- PLANTILLA: copiá un bloque <article class="card">...</article> por cada proyecto nuevo.
-         Cuando tengas el repo, reemplazá <span class="soon">...</span> por:
-         <a href="https://github.com/emmanuelMorenohalberstadtDev/NOMBRE-DEL-REPO" target="_blank" rel="noopener">Código →</a> -->
     <div class="project-grid">
       <article class="card">
-        <h3 class="card__title">Proyecto 2 — [ título ]</h3>
+        <h3 class="card__title">Gestor de turnos</h3>
         <p class="card__desc">
-          [ Descripción breve del proyecto: qué hace, qué problema resuelve y tu rol. ]
+          Reserva de turnos online para un negocio: el cliente elige servicio, día y horario
+          disponible desde el celular y recibe la confirmación al instante.
         </p>
-        <ul class="card__stack"><li>C#</li><li>.NET</li><li>SQL Server</li></ul>
+        <ul class="card__stack"><li>JavaScript</li><li>HTML5</li><li>CSS3</li></ul>
         <div class="card__links">
-          <span class="soon">Próximamente</span>
+          <a href="https://github.com/emmanuelMorenohalberstadtDev/MarketingPage/blob/main/demos/reservas.html" target="_blank" rel="noopener">Código →</a>
         </div>
       </article>
 
       <article class="card">
-        <h3 class="card__title">Proyecto 3 — [ título ]</h3>
+        <h3 class="card__title">E-commerce</h3>
         <p class="card__desc">
-          [ Descripción breve del proyecto: una API REST, una SPA en Angular, un TP, etc. ]
+          Tienda online full stack con catálogo, carrito, lista de deseos y autenticación JWT.
+          API con Clean Architecture, organizada por dominios: checkout, órdenes, inventario y pagos.
         </p>
-        <ul class="card__stack"><li>Stack</li><li>aquí</li></ul>
+        <ul class="card__stack"><li>Java 21</li><li>Spring Boot</li><li>Angular</li><li>PostgreSQL</li><li>Docker</li></ul>
         <div class="card__links">
-          <span class="soon">Próximamente</span>
+          <a href="https://github.com/emmanuelMorenohalberstadtDev/Ecomerce" target="_blank" rel="noopener">Código →</a>
         </div>
       </article>
     </div>
@@ -318,7 +310,7 @@
     </form>
   </div>
 
-  <script src="app.js?v=4" defer></script>
+  <script src="app.js?v=5" defer></script>
   <script src="chatbot.js?v=3" defer></script>
 </body>
 </html>

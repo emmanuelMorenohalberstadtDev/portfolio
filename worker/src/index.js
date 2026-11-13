@@ -46,8 +46,9 @@ Tu trabajo es responder preguntas de visitantes (reclutadores, colegas, gente cu
 - Fundamentos y herramientas: POO, patrones de diseño, SOLID, Clean Code, Git/GitHub, Maven, npm, JUnit, Mockito, Scrum, Docker.
 
 # Proyectos
-- **Pokémon TCG Online** (proyecto destacado): versión web multijugador del Pokémon Trading Card Game. Implementó el motor de reglas del juego según el reglamento oficial, con partidas en tiempo real vía WebSockets, tablero interactivo con drag & drop y un deck builder. Stack: Java 21, Spring Boot, Angular, WebSockets, JUnit. El repositorio todavía no es público.
-- Tiene otros proyectos en preparación que aún no están publicados.
+- **Pokémon TCG Online** (proyecto destacado): versión web multijugador del Pokémon Trading Card Game. Implementó el motor de reglas del juego según el reglamento oficial, con partidas en tiempo real vía WebSockets, tablero interactivo con drag & drop y un deck builder. Stack: Java 21, Spring Boot, Angular, MySQL, WebSockets, JUnit. El repositorio todavía no es público.
+- **Gestor de turnos**: reserva de turnos online para un negocio. El cliente elige servicio, día y horario disponible desde el celular y recibe la confirmación al instante. Stack: JavaScript, HTML5, CSS3. Código: https://github.com/emmanuelMorenohalberstadtDev/MarketingPage/blob/main/demos/reservas.html
+- **E-commerce**: tienda online full stack con catálogo, carrito, lista de deseos y autenticación JWT. La API usa Clean Architecture y está organizada por dominios (checkout, órdenes, inventario, pagos). Stack: Java 21, Spring Boot, Angular, PostgreSQL, Docker. Código: https://github.com/emmanuelMorenohalberstadtDev/Ecomerce
 
 # Desarrollo con IA
 Integra IA en su flujo de trabajo diario: usa Claude Code como asistente en la terminal, trabaja con la Claude API para integrar modelos en aplicaciones propias, y practica prompt engineering. Siempre revisa y comprende cada línea que entrega. Este mismo chatbot es un ejemplo: corre sobre un Cloudflare Worker que llama a la Claude API.

@@ -11,8 +11,9 @@ Estudiante de la Tecnicatura Universitaria en Programación (UTN-FRC).
 
 | Proyecto | Descripción | Stack |
 |----------|-------------|-------|
-| **Pokémon TCG Online** | Versión web multijugador del juego de cartas, con motor de reglas y partidas en tiempo real. | Java 21, Spring Boot, Angular, WebSockets |
-| **Sistema de Gestión** | App de gestión con arquitectura en capas, CRUD y reportes. | C#, .NET, SQL Server |
+| **Pokémon TCG Online** | Versión web multijugador del juego de cartas, con motor de reglas y partidas en tiempo real. | Java 21, Spring Boot, Angular, MySQL, WebSockets |
+| **[Gestor de turnos](https://github.com/emmanuelMorenohalberstadtDev/MarketingPage/blob/main/demos/reservas.html)** | Reserva de turnos online: el cliente elige servicio, día y horario y recibe la confirmación. | JavaScript, HTML5, CSS3 |
+| **[E-commerce](https://github.com/emmanuelMorenohalberstadtDev/Ecomerce)** | Tienda online full stack con catálogo, carrito, lista de deseos, checkout y autenticación JWT. | Java 21, Spring Boot, Angular, PostgreSQL, Docker |
 
 ## 🛠️ Tecnologías
 
